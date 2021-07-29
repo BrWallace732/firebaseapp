@@ -1,28 +1,24 @@
 import React from 'react';
-import { 
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from 'react-router-dom'
-import Usuarios from './components/Usuarios'
-import Usuario from './components/Usuario'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Inicio from './components/Inicio';
+import Admin from './components/Admin';
+import Login from './components/Login';
+import Menu from './components/Menu';
 
 function App() {
   return (
+  <div className="container" >
     <Router>
-      <Link to="/" >Usuarios</Link>
-
+      <Menu></Menu>
       <Switch>
-        <Route exact path="/">
-          <Usuarios/>
-        </Route>
-        <Route path="/usuario/:id">
-          <Usuario/>
-        </Route>
-
+        <Route exact path='/' component={Inicio}></Route>
+        <Route path='/admin' component={Admin}></Route>
+        <Route path='/login' component={Login}></Route>
       </Switch>
     </Router>
+
+
+  </div>
   );
 }
 
